@@ -33,6 +33,7 @@ def measure_time_in_draft(
     total_draft_time = timedelta(0)
 
     for event in events:
+        print(issue.title, "-", event.event)
         if event.event == "converted_to_draft":
             draft_start = event.created_at
         elif event.event == "ready_for_review" and draft_start:
