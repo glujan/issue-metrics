@@ -11,6 +11,7 @@ runs:
         uv run \
           --with-requirements requirements.txt \
           --python 3.13 \
+          --no-project \
           python -u issue_metrics.py
 
 
