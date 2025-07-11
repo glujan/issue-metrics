@@ -8,22 +8,24 @@ from typing import List, Union
 import github3
 import numpy
 import pytz
+from github3.search.issue import IssueSearchResult
+
 from classes import IssueWithMetrics
 
 
 def measure_time_in_draft(
-    issue: github3.issues.Issue,
+    issue: IssueSearchResult,
 ) -> Union[timedelta, None]:
     """If a pull request has had time in the draft state, return the cumulative amount of time it was in draft.
 
     args:
-        issue (github3.issues.Issue): A GitHub issue which has been pre-qualified as a pull request.
+        issue (github3.search.IssueSearchResult): A GitHub issue which has been pre-qualified as a pull request.
 
     returns:
         Union[timedelta, None]: Total time the pull request has spent in draft state.
     """
     try:
-        events = issue.events()
+        events = issue.issue.events()
     except Exception as e:
         print(type(issue), issue.title, e)
         return None
