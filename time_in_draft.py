@@ -24,8 +24,8 @@ def measure_time_in_draft(
     """
     try:
         events = issue.events()
-    except AttributeError:
-        print(type(issue))
+    except Exception as e:
+        print(type(issue), e)
         return None
     draft_start = None
     total_draft_time = timedelta(0)
