@@ -9,10 +9,10 @@ runs:
       shell: bash
       run: |
         uv run \
-          --with-requirements ./${{ github.action_path }}/requirements.txt \
+          --with-requirements ${{ github.action_path }}/requirements.txt \
           --python 3.13 \
           --no-project \
-          python -u ./${{ github.action_path }}/issue_metrics.py
+          python -u ${{ github.action_path }}/issue_metrics.py
 
 
 branding:
