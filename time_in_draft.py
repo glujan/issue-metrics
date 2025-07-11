@@ -24,8 +24,9 @@ def measure_time_in_draft(
     returns:
         Union[timedelta, None]: Total time the pull request has spent in draft state.
     """
+    print("--", type(issue), issue.title, "--")
     try:
-        events = issue.issue.events()
+        events = issue.events()
     except Exception as e:
         print(type(issue), issue.title, e)
         return None
